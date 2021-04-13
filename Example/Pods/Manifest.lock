@@ -1,13 +1,20 @@
 PODS:
+  - Alamofire (4.7.3)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
   - DetalhesMoedas (0.1.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7.0)
+  - AlamofireImage (~> 3.4.0)
   - DetalhesMoedas (from `../`)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -15,9 +22,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   DetalhesMoedas: 145cd938ff6918c8345eb18f63b8b38438b370bb
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 11bc5f563ec65f299f43c6a4fea77e5544a0c392
+PODFILE CHECKSUM: 2ce3ad165af199c9344dcabbb24c60ba3fae16cb
 
 COCOAPODS: 1.10.1
