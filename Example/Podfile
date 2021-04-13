@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'DetalhesMoedas_Example' do
+  pod 'DetalhesMoedas', :path => '../'
+
+  target 'DetalhesMoedas_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
