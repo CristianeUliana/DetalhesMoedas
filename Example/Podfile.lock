@@ -1,0 +1,23 @@
+PODS:
+  - DetalhesMoedas (0.1.0)
+  - SwiftLint (0.43.1)
+
+DEPENDENCIES:
+  - DetalhesMoedas (from `../`)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  DetalhesMoedas:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DetalhesMoedas: 145cd938ff6918c8345eb18f63b8b38438b370bb
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+
+PODFILE CHECKSUM: 11bc5f563ec65f299f43c6a4fea77e5544a0c392
+
+COCOAPODS: 1.10.1

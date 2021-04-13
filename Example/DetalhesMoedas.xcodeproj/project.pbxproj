@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		401CC86B5C690991EA8085E8 /* Pods_DetalhesMoedas_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetalhesMoedas_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		435C299084D593D46588BC79 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		435C299084D593D46588BC79 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		4366055FC7C4D1786ACE1AB4 /* Pods-DetalhesMoedas_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetalhesMoedas_Example.release.xcconfig"; path = "Target Support Files/Pods-DetalhesMoedas_Example/Pods-DetalhesMoedas_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5164C1CECB14293B2AB6E153 /* Pods-DetalhesMoedas_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetalhesMoedas_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DetalhesMoedas_Tests/Pods-DetalhesMoedas_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* DetalhesMoedas_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetalhesMoedas_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,11 +42,11 @@
 		607FACE51AFB9204008FA782 /* DetalhesMoedas_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetalhesMoedas_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7AB9B6740AA3A22861E2C755 /* DetalhesMoedas.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DetalhesMoedas.podspec; path = ../DetalhesMoedas.podspec; sourceTree = "<group>"; };
+		7AB9B6740AA3A22861E2C755 /* DetalhesMoedas.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DetalhesMoedas.podspec; path = ../DetalhesMoedas.podspec; sourceTree = "<group>"; };
 		7E040632A7BFE8B3B59F10B8 /* Pods-DetalhesMoedas_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetalhesMoedas_Example.debug.xcconfig"; path = "Target Support Files/Pods-DetalhesMoedas_Example/Pods-DetalhesMoedas_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		89C093CEE87EDEB5A35E7022 /* Pods-DetalhesMoedas_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetalhesMoedas_Tests.release.xcconfig"; path = "Target Support Files/Pods-DetalhesMoedas_Tests/Pods-DetalhesMoedas_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A0CE5B7A7744336AE2CB2873 /* Pods_DetalhesMoedas_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetalhesMoedas_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4A4BB6FFB6264420F45C251 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B4A4BB6FFB6264420F45C251 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,6 @@
 				5164C1CECB14293B2AB6E153 /* Pods-DetalhesMoedas_Tests.debug.xcconfig */,
 				89C093CEE87EDEB5A35E7022 /* Pods-DetalhesMoedas_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -172,6 +171,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				7BB37B275AA0650E3DF189F7 /* [CP] Embed Pods Frameworks */,
+				3E33917D2625E026000DF711 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -227,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -262,6 +263,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E33917D2625E026000DF711 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n\n${PODS_ROOT}/SwiftLint/swiftlint\n\nelse\n\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n\nfi\n";
+		};
 		7BB37B275AA0650E3DF189F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

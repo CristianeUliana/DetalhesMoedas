@@ -4,6 +4,7 @@ platform :ios, '9.0'
 
 target 'DetalhesMoedas_Example' do
   pod 'DetalhesMoedas', :path => '../'
+  pod 'SwiftLint'
 
   target 'DetalhesMoedas_Tests' do
     inherit! :search_paths

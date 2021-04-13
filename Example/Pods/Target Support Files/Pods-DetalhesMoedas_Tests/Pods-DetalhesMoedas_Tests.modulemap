@@ -1,0 +1,6 @@
+framework module Pods_DetalhesMoedas_Tests {
+  umbrella header "Pods-DetalhesMoedas_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
