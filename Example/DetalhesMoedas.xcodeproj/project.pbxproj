@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26EE604F7306518E40CFA6FE /* Pods_DetalhesMoedas_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CE5B7A7744336AE2CB2873 /* Pods_DetalhesMoedas_Example.framework */; };
+		3EBC57CF26272A850040580E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC57CE26272A850040580E /* Model.swift */; };
 		3EDD9CD62626804000FE7E8A /* TesteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD9CD42626804000FE7E8A /* TesteViewController.swift */; };
 		3EDD9CD72626804000FE7E8A /* TesteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD9CD52626804000FE7E8A /* TesteViewController.xib */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EBC57CE26272A850040580E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3EDD9CD42626804000FE7E8A /* TesteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteViewController.swift; sourceTree = "<group>"; };
 		3EDD9CD52626804000FE7E8A /* TesteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TesteViewController.xib; sourceTree = "<group>"; };
 		401CC86B5C690991EA8085E8 /* Pods_DetalhesMoedas_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetalhesMoedas_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,9 +108,10 @@
 		607FACD21AFB9204008FA782 /* Example for DetalhesMoedas */ = {
 			isa = PBXGroup;
 			children = (
-				3E33919C2625EF2C000DF711 /* View */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				3E33919C2625EF2C000DF711 /* View */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				3EBC57CE26272A850040580E /* Model.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -371,6 +374,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				3EDD9CD62626804000FE7E8A /* TesteViewController.swift in Sources */,
+				3EBC57CF26272A850040580E /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
