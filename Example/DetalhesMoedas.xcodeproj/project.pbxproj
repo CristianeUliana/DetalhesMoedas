@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		26EE604F7306518E40CFA6FE /* Pods_DetalhesMoedas_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CE5B7A7744336AE2CB2873 /* Pods_DetalhesMoedas_Example.framework */; };
+		3EDD9CD62626804000FE7E8A /* TesteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD9CD42626804000FE7E8A /* TesteViewController.swift */; };
+		3EDD9CD72626804000FE7E8A /* TesteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD9CD52626804000FE7E8A /* TesteViewController.xib */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EDD9CD42626804000FE7E8A /* TesteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteViewController.swift; sourceTree = "<group>"; };
+		3EDD9CD52626804000FE7E8A /* TesteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TesteViewController.xib; sourceTree = "<group>"; };
 		401CC86B5C690991EA8085E8 /* Pods_DetalhesMoedas_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetalhesMoedas_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		435C299084D593D46588BC79 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		4366055FC7C4D1786ACE1AB4 /* Pods-DetalhesMoedas_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetalhesMoedas_Example.release.xcconfig"; path = "Target Support Files/Pods-DetalhesMoedas_Example/Pods-DetalhesMoedas_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		3E33919C2625EF2C000DF711 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3EDD9CD42626804000FE7E8A /* TesteViewController.swift */,
+				3EDD9CD52626804000FE7E8A /* TesteViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDD9CD72626804000FE7E8A /* TesteViewController.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -273,7 +280,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3E33917D2625E026000DF711 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -284,7 +291,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n\n${PODS_ROOT}/SwiftLint/swiftlint\n\nelse\n\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n\nfi\n";
 		};
@@ -363,6 +370,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				3EDD9CD62626804000FE7E8A /* TesteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

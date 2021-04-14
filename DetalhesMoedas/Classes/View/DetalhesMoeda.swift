@@ -1,10 +1,10 @@
 
 import UIKit
 
-class DetalhesMoeda: UIView {
+public class DetalhesMoeda: UIView {
     
     var listaFavoritos: [String] = []
-    
+   
     
     @IBOutlet weak var imagemFavoritos: UIImageView!
     
@@ -30,16 +30,18 @@ class DetalhesMoeda: UIView {
         // se moeda está em listaFavoritos -> Remove
         // senão -> Adiciona
         
-        
     }
-    
-    
-    
-    
-    
     
     
 }
 
 
-
+public extension UIView {
+    func loadNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nibName = type(of: self).description().components(separatedBy: ".").last!
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        return nib.instantiate(withOwner: self, options: nil).first as! UIView
+    }
+    
+}

@@ -9,8 +9,12 @@
 import UIKit
 import DetalhesMoedas
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
+    let controller = TesteViewController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,10 +27,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func botao(_ sender: UIButton) {
-        
-        
-        
-        
+        print("clicado")
+        show(controller, sender: nil)
+      //navigationController?.pushViewController(controller, animated: true)
     }
 }
-
