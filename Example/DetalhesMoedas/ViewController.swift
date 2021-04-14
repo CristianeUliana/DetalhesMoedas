@@ -38,7 +38,7 @@ struct CriptoMoeda: Codable {
 
 typealias CriptoMoedas = [CriptoMoeda]
 
-class ViewController: UIViewController, DetalhesMoedaDelegate {
+class ViewController: UIViewController {
     
     
     
@@ -47,6 +47,8 @@ class ViewController: UIViewController, DetalhesMoedaDelegate {
     // let controller = TesteViewController()
     
     var favoritos: String = ""
+    
+    let detalhes = DetalhesMoeda.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +61,8 @@ class ViewController: UIViewController, DetalhesMoedaDelegate {
     }
     
     func setup() {
-        let detalhes = DetalhesMoeda.fromNib()
-        detalhes.setupUI(moedaDelegate: self)
+        //let detalhes = DetalhesMoeda.fromNib()
+        //detalhes.setupUI(moedaDelegate: self)
         myStack.addSubview(detalhes)
     }
 
@@ -82,10 +84,18 @@ class ViewController: UIViewController, DetalhesMoedaDelegate {
         task.resume()
     }
     
-    func buttonAction() {
-        print(favoritos)
-        
-    }
+//    func buttonAction() {
+//
+//        var listaDeFavoritos = favoritos.split(separator: "|")
+//
+//
+//
+//
+//
+//
+//
+//        print(listaDeFavoritos)
+//    }
         
 //    @IBAction func botao(_ sender: UIButton) {
 //

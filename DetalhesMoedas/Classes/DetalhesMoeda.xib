@@ -194,6 +194,7 @@
                 <outlet property="botaoAdcionarRemoverOutlet" destination="RQw-89-MvJ" id="OiA-6W-6V1"/>
                 <outlet property="imagemFavoritos" destination="gdb-QQ-zey" id="VZh-0m-Vbt"/>
                 <outlet property="imagemMoeda" destination="d3b-MR-Y4X" id="PpZ-q0-dMj"/>
+                <outlet property="siglaLabel" destination="t6u-dz-vYs" id="Ckg-M3-S6y"/>
                 <outlet property="valorAnoLabel" destination="EHc-hU-Ph8" id="ike-Md-GnB"/>
                 <outlet property="valorHoraLabel" destination="hGE-3b-vDz" id="eUt-lg-mAA"/>
                 <outlet property="valorMesLabel" destination="sEC-4W-Xpf" id="BVy-8X-e0S"/>
