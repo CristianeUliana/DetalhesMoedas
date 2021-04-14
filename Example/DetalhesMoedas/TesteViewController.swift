@@ -14,12 +14,18 @@ class TesteViewController: UIViewController {
     @IBOutlet var myView: UIView!
     @IBOutlet weak var myStack: UIStackView!
     
-
+    var favoritos: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let detalhes = DetalhesMoeda().loadNib()
-        myStack.addSubview(detalhes)
-        // Do any additional setup after loading the view.
+        setup()
+        print(favoritos)
+    }
+    
+    func setup() {
+        
+        
+        
     }
 
 
@@ -34,3 +40,5 @@ class TesteViewController: UIViewController {
     */
 
 }
+
+

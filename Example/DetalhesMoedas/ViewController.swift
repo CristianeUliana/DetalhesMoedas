@@ -38,49 +38,43 @@ struct CriptoMoeda: Codable {
 
 typealias CriptoMoedas = [CriptoMoeda]
 
-
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, DetalhesMoedaDelegate {
     
-    let controller = TesteViewController()
+    
+    
+    @IBOutlet weak var myStack: UIStackView!
+    
+    // let controller = TesteViewController()
+    
     var favoritos: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         makeRequest()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func botao(_ sender: UIButton) {
-        print("clicado")
-        show(controller, sender: nil)
-      //navigationController?.pushViewController(controller, animated: true)
     }
     
+    func setup() {
+        let detalhes = DetalhesMoeda.fromNib()
+        detalhes.setupUI(moedaDelegate: self)
+        myStack.addSubview(detalhes)
+    }
+
     private func makeRequest() {
         let url = URL( string: "https://6076e5cf1ed0ae0017d6a02f.mockapi.io/api/v1/users")!
-        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print(response as Any)
-            
             guard let responseData = data else { return }
-          
             do {
                 let moedas = try JSONDecoder().decode(CriptoMoedas.self, from: responseData)
-                
                 for moeda in moedas {
-//                    print(moedas)
-//                    print("*************************************")
-//                    print(moeda)
-//                    print("*************************************")
-                    print(moeda.assetID)
+                    self.favoritos += "\(moeda.assetID)|"
                 }
-            
+                print(self.favoritos)
             } catch let error {
                 print("error: \(error)")
             }
@@ -88,5 +82,27 @@ class ViewController: UIViewController {
         task.resume()
     }
     
+    func buttonAction() {
+        print(favoritos)
+        
+    }
+        
+//    @IBAction func botao(_ sender: UIButton) {
+//
+//        show(controller, sender: self)
+//
+//      //navigationController?.pushViewController(controller, animated: true)
+//    }
+    
+   
     
 }
+
+
+//extension UIViewController: DetalhesMoedaDelegate {
+//    public func buttonAction() {
+//        print(favoritos)
+//
+//
+//    }
+//}
