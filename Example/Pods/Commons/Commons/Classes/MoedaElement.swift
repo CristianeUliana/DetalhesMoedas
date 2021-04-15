@@ -1,13 +1,13 @@
 //
-//  Estrutura.swift
-//  DetalhesMoedas
+//  MoedaElement.swift
+//  Commons
 //
-//  Created by Cristiane Goncalves Uliana on 15/04/21.
+//  Created by Leonardo Oliveira Portes on 15/04/21.
 //
 
 import Foundation
 
-public struct MoedaElements: Codable {
+public struct MoedaElement: Codable {
     let assetID, name: String
     let typeIsCrypto: Int
     let dataStart, dataEnd, dataQuoteStart, dataQuoteEnd: String
@@ -37,4 +37,4 @@ public struct MoedaElements: Codable {
     }
 }
 
-typealias Moeda = [MoedaElements]
+typealias Moeda = [MoedaElement]

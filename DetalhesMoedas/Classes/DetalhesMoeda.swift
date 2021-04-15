@@ -55,7 +55,7 @@ public class DetalhesMoeda: UIView {
             }
         }
 
-    func configuraTela(_ moeda: MoedaElement) {
+    func configuraTela(_ moeda: MoedaElements) {
         viewSup.backgroundColor = HeaderCores.headerColor
         siglaMoedaLabel.text = moeda.assetID
         valorMoedaLabel.text = "$ \(moeda.priceUsd)"
@@ -64,9 +64,9 @@ public class DetalhesMoeda: UIView {
         valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)" // fazer configuração dos valores
         let caminhoIcon = moeda.idIcon
         let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
-//        let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
-//        guard let urlCompleta = URL(string: url) else {return}
-//        moedaImage.af.setImage(withURL: urlCompleta)
+        let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
+        guard let urlCompleta = URL(string: url) else {return}
+        moedaImage.af.setImage(withURL: urlCompleta)
     }
     
     func configurarButton(_ acao: String) {
