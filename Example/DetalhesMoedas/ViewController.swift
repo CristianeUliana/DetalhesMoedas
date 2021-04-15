@@ -17,11 +17,12 @@ class ViewController: UIViewController {
 
     let detalhes = DetalhesMoeda.fromNib()
     var sigla: Substring = "BTC"
+    var listaFavoritos = "USD|BTC|EUR"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myStack.addSubview(detalhes)
-        //detalhes.verificarFavoritos(sigla)
+        detalhes.verificarFavoritos(listaFavoritos, sigla)
         detalhes.makeRequestDetalhes(sigla: "BTC")
     }
     override func didReceiveMemoryWarning() {
