@@ -1,7 +1,0 @@
-disabled_rules:
-- line_length
-- identifier_name
-- trailing_whitespace
-- vertical_whitespace
-excluded:
-- Pods

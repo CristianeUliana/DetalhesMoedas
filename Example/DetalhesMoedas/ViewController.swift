@@ -8,6 +8,8 @@
 
 import UIKit
 import DetalhesMoedas
+import AlamofireImage
+
 
 class ViewController: UIViewController {
     
@@ -25,5 +27,8 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    
     
 }

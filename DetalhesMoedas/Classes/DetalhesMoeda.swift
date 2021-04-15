@@ -1,40 +1,9 @@
 
 import UIKit
-//import AlamofireImage
+import AlamofireImage
+import Commons
 
-
-//struct MoedaElement: Codable {
-//    let assetID, name: String
-//    let typeIsCrypto: Int
-//    let dataStart, dataEnd, dataQuoteStart, dataQuoteEnd: String
-//    let dataOrderbookStart, dataOrderbookEnd, dataTradeStart, dataTradeEnd: String
-//    let dataSymbolsCount: Int
-//    let volume1HrsUsd, volume1DayUsd, volume1MthUsd, priceUsd: Double
-//    let idIcon: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case assetID = "asset_id"
-//        case name
-//        case typeIsCrypto = "type_is_crypto"
-//        case dataStart = "data_start"
-//        case dataEnd = "data_end"
-//        case dataQuoteStart = "data_quote_start"
-//        case dataQuoteEnd = "data_quote_end"
-//        case dataOrderbookStart = "data_orderbook_start"
-//        case dataOrderbookEnd = "data_orderbook_end"
-//        case dataTradeStart = "data_trade_start"
-//        case dataTradeEnd = "data_trade_end"
-//        case dataSymbolsCount = "data_symbols_count"
-//        case volume1HrsUsd = "volume_1hrs_usd"
-//        case volume1DayUsd = "volume_1day_usd"
-//        case volume1MthUsd = "volume_1mth_usd"
-//        case priceUsd = "price_usd"
-//        case idIcon = "id_icon"
-//    }
-//}
-//
-//typealias Moeda = [MoedaElement]
-
+// Struct da resposta mockada
 struct MoedaElement: Codable {
     let id, assetID, name: String
     let priceUsd: Int
@@ -63,16 +32,20 @@ public struct Botao {
 
 public class DetalhesMoeda: UIView {
     
+    //MARK: - Variáveis
     //var listaFavoritos: [String] = []
     //var delegate: DetalhesMoedaDelegate?
     //var buttonAction: (() -> Void)?
     
-   
+   // variáveis de teste
     var favoritos = "USD|BTC|EUR"
     var ehFavorito = false
     
     // MARK: - IBOutlets
     
+    
+    @IBOutlet weak var viewButton: UIView!
+    @IBOutlet weak var viewSup: UIView!
     @IBOutlet weak var siglaMoedaLabel: UILabel!
     @IBOutlet weak var favoritoImage: UIImageView!
     @IBOutlet weak var moedaImage: UIImageView!
@@ -88,7 +61,11 @@ public class DetalhesMoeda: UIView {
             //let newUrl = ApiRest.MoedaDetalhe.replacingOccurrences(of: "@@@", with: sigla)
             //let api = "https://rest-sandbox.coinapi.io/v1/assets/@@@?apikey=1F8A5E86-F1C9-41C7-B8BB-9DB1B81FDE7C"
             //let newUrl = api.replacingOccurrences(of: "@@@", with: sigla)
+        
+                         // resposta mockada
             let newUrl = "https://607797ae1ed0ae0017d6afb7.mockapi.io/api/v1/users"
+           
+        
             let url = URL(string: newUrl)!
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 print(response as Any)
@@ -109,13 +86,22 @@ public class DetalhesMoeda: UIView {
 
 
     func configuraTela(_ moeda: MoedaElement) {
+        viewSup.backgroundColor = HeaderCores.headerColor
+        
+        
         siglaMoedaLabel.text = moeda.assetID
         valorMoedaLabel.text = "$ \(moeda.priceUsd)"
         valorHoraLabel.text = "$ \(moeda.volume1HrsUsd)"
         valorMesLabel.text = "$ \(moeda.volume1HrsUsd)"
-        valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)"
+        valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)" // fazer configuração dos valores
         
-
+        //let caminhoIcon = moeda.idIcon
+        //let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
+        //let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
+        let apiUrl = "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_16/@@@.png"
+        let urlReplacing = apiUrl.replacingOccurrences(of: "@@@", with: "4caf2b16a0174e26a3482cea69c34cba")
+        guard let url = URL(string: urlReplacing) else {return}
+        moedaImage.af_setImage(withURL: url)
     }
     
     
@@ -126,48 +112,14 @@ public func verificarFavoritos(_ sigla: Substring) {
         if listaDeFavoritos.contains(sigla) {
             ehFavorito = true
             botaoLabel.text = Botao.Remover
+            // inserir imagem da estrela
         } else {
             botaoLabel.text = Botao.Adicionar
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//
-//    public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {
-//        botaoAdcionarRemoverOutlet.setTitle(Botao.Adicionar, for: .normal)
-//        delegate = moedaDelegate
-//    }
-//
-//
-//
-//
-//
-//    @IBAction func botaoAcao(_ sender: UIButton) {
-//        if let _buttonAction = buttonAction {
-//            _buttonAction()
-//        } else {
-//            delegate?.buttonAction()
-//        }
-//        // se moeda está em listaFavoritos -> Remove
-//        // senão -> Adiciona
-//
-//    }
 }
 
-
+    // MARK: - Extensions
 
 extension UIView {
 
@@ -195,3 +147,39 @@ extension UIView {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//    public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {
+//        botaoAdcionarRemoverOutlet.setTitle(Botao.Adicionar, for: .normal)
+//        delegate = moedaDelegate
+//    }
+//
+//
+//
+//
+//
+//    @IBAction func botaoAcao(_ sender: UIButton) {
+//        if let _buttonAction = buttonAction {
+//            _buttonAction()
+//        } else {
+//            delegate?.buttonAction()
+//        }
+//        // se moeda está em listaFavoritos -> Remove
+//        // senão -> Adiciona
+//
+//    }

@@ -199,6 +199,8 @@
                 <outlet property="valorHoraLabel" destination="hGE-3b-vDz" id="lEi-9y-Ia3"/>
                 <outlet property="valorMesLabel" destination="sEC-4W-Xpf" id="Xxa-Sr-vNm"/>
                 <outlet property="valorMoedaLabel" destination="bUv-yN-KIG" id="lHL-Jw-kZf"/>
+                <outlet property="viewButton" destination="lU3-IF-hgv" id="yEN-zH-uNn"/>
+                <outlet property="viewSup" destination="To3-dQ-J3f" id="wtd-fQ-BXe"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="102.71739130434783"/>
         </view>
