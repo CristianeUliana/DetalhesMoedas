@@ -58,10 +58,10 @@ public class DetalhesMoeda: UIView {
     func configuraTela(_ moeda: MoedaElement) {
         viewSup.backgroundColor = HeaderCores.headerColor
         siglaMoedaLabel.text = moeda.assetID
-        valorMoedaLabel.text = configurarValores(moeda.priceUsd)
-        valorHoraLabel.text = configurarValores(moeda.volume1HrsUsd)
-        valorMesLabel.text = configurarValores(moeda.volume1DayUsd)
-        valorAnoLabel.text = configurarValores(moeda.volume1MthUsd)
+        valorMoedaLabel.text = moeda.priceUsd.formatador()
+        valorHoraLabel.text = moeda.volume1HrsUsd.formatador()
+        valorMesLabel.text = moeda.volume1DayUsd.formatador()
+        valorAnoLabel.text = moeda.volume1MthUsd.formatador()
         let caminhoIcon = moeda.idIcon
         let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
         let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
@@ -81,19 +81,6 @@ public class DetalhesMoeda: UIView {
         let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 240)
         let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 60)
         viewButton.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-    }
-    
-    
-    func configurarValores(_ valor: Double) -> String {
-        let formatador = NumberFormatter()
-        formatador.numberStyle = .decimal
-        formatador.maximumFractionDigits = 2
-        formatador.minimumFractionDigits = 2
-        formatador.decimalSeparator = ","
-        formatador.groupingSeparator = "."
-        let numero = NSNumber(value: valor)
-        let numeroFormatado = formatador.string(from: numero) ?? ""
-        return "$ \(numeroFormatado)"
     }
 
     public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {
@@ -133,5 +120,20 @@ extension UIView {
             return nib
         }
         return T()
+    }
+}
+
+extension Double {
+    
+    func formatador() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.decimalSeparator = ","
+        numberFormatter.groupingSeparator = "."
+        let numero = NSNumber(value: self)
+        let numeroFormatado = numberFormatter.string(from: numero) ?? ""
+        return "$ \(numeroFormatado)"
     }
 }
