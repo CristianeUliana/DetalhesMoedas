@@ -58,10 +58,10 @@ public class DetalhesMoeda: UIView {
     func configuraTela(_ moeda: MoedaElement) {
         viewSup.backgroundColor = HeaderCores.headerColor
         siglaMoedaLabel.text = moeda.assetID
-        valorMoedaLabel.text = "$ \(moeda.priceUsd)"
-        valorHoraLabel.text = "$ \(moeda.volume1HrsUsd)"
-        valorMesLabel.text = "$ \(moeda.volume1DayUsd)"
-        valorAnoLabel.text = "$ \(moeda.volume1MthUsd)" // fazer configuração dos valores
+        valorMoedaLabel.text = configurarValores(moeda.priceUsd)
+        valorHoraLabel.text = configurarValores(moeda.volume1HrsUsd)
+        valorMesLabel.text = configurarValores(moeda.volume1DayUsd)
+        valorAnoLabel.text = configurarValores(moeda.volume1MthUsd)
         let caminhoIcon = moeda.idIcon
         let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
         let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
@@ -72,6 +72,7 @@ public class DetalhesMoeda: UIView {
     func configurarButton(_ acao: String) {
         let button = ButtonDetalhes.centralButton
         button.setTitle(acao, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         button.addTarget(self, action: #selector(botaoAcao), for: .touchUpInside)
         viewButton.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +81,19 @@ public class DetalhesMoeda: UIView {
         let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 240)
         let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 60)
         viewButton.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    }
+    
+    
+    func configurarValores(_ valor: Double) -> String {
+        let formatador = NumberFormatter()
+        formatador.numberStyle = .decimal
+        formatador.maximumFractionDigits = 2
+        formatador.minimumFractionDigits = 2
+        formatador.decimalSeparator = ","
+        formatador.groupingSeparator = "."
+        let numero = NSNumber(value: valor)
+        let numeroFormatado = formatador.string(from: numero) ?? ""
+        return "$ \(numeroFormatado)"
     }
 
     public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {

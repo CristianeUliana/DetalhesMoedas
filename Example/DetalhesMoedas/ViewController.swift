@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var myStack: UIStackView!
 
     let detalhes = DetalhesMoeda.fromNib()
-    var sigla: Substring = "BTC"
+    var sigla: Substring = "LOH"
     var listaFavoritos = "USD|BTC|EUR"
     
     override func viewDidLoad() {
