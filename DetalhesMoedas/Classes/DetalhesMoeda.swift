@@ -45,11 +45,12 @@ public class DetalhesMoeda: UIView {
             task.resume()
         }
 
-    public func verificarFavoritos(_ favoritos: String, _ sigla: Substring) {
+    public func verificarFavoritos(_ favoritos: String, _ sigla: Substring,_ estrela: String) {
             let listaDeFavoritos = favoritos.split(separator: "|")
             if listaDeFavoritos.contains(sigla) {
                 ehFavorito = true
                 configurarButton(ActionButton.Remover)
+                favoritoImage.image = UIImage(named: estrela)
             } else {
                 configurarButton(ActionButton.Adicionar)
             }
