@@ -44,13 +44,13 @@ public class DetalhesMoeda: UIView {
     // MARK: - IBOutlets
     
     
+    
     @IBOutlet weak var viewButton: UIView!
     @IBOutlet weak var viewSup: UIView!
     @IBOutlet weak var siglaMoedaLabel: UILabel!
     @IBOutlet weak var favoritoImage: UIImageView!
     @IBOutlet weak var moedaImage: UIImageView!
     @IBOutlet weak var valorMoedaLabel: UILabel!
-    @IBOutlet weak var botaoLabel: UILabel!
     @IBOutlet weak var valorHoraLabel: UILabel!
     @IBOutlet weak var valorMesLabel: UILabel!
     @IBOutlet weak var valorAnoLabel: UILabel!
@@ -87,14 +87,11 @@ public class DetalhesMoeda: UIView {
 
     func configuraTela(_ moeda: MoedaElement) {
         viewSup.backgroundColor = HeaderCores.headerColor
-        
-        
         siglaMoedaLabel.text = moeda.assetID
         valorMoedaLabel.text = "$ \(moeda.priceUsd)"
         valorHoraLabel.text = "$ \(moeda.volume1HrsUsd)"
         valorMesLabel.text = "$ \(moeda.volume1HrsUsd)"
         valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)" // fazer configuração dos valores
-        
         //let caminhoIcon = moeda.idIcon
         //let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
         //let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
@@ -106,15 +103,27 @@ public class DetalhesMoeda: UIView {
     
     
     
+    func configurarButton(_ acao: String) {
+        let botao = ButtonDetalhes.centralButton
+        botao.setTitle(acao, for: .normal)
+        viewButton.addSubview(botao)
+        botao.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 240)
+        let heightConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 60)
+        viewButton.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    }
+    
+    
 public func verificarFavoritos(_ sigla: Substring) {
         let listaDeFavoritos = favoritos.split(separator: "|")
-    
         if listaDeFavoritos.contains(sigla) {
             ehFavorito = true
-            botaoLabel.text = Botao.Remover
-            // inserir imagem da estrela
+            configurarButton(ActionButton.Remover)
+            
         } else {
-            botaoLabel.text = Botao.Adicionar
+            configurarButton(ActionButton.Adicionar)
         }
     }
 }

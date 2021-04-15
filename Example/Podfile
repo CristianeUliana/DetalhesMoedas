@@ -5,8 +5,6 @@ platform :ios, '10.0'
 target 'DetalhesMoedas_Example' do
   pod 'DetalhesMoedas', :path => '../'
   pod 'SwiftLint'
-  #pod 'Alamofire', '~> 4.7.0'
-  #pod 'AlamofireImage', '~> 3.4.0'
   pod 'Commons', :git=> 'https://github.com/leojportes/Commons.git', :branch=> 'develop'
   
 

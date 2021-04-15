@@ -1,8 +1,8 @@
 //
-//  CriptoMoeda.swift
-//  Commons
+//  Criptomoeda.swift
+//  Alamofire
 //
-//  Created by Leonardo Oliveira Portes on 14/04/21.
+//  Created by Leonardo Oliveira Portes on 15/04/21.
 //
 
 import Foundation
@@ -35,4 +35,3 @@ struct CriptoMoeda: Codable {
         case priceUsd = "price_usd"
     }
 }
- 

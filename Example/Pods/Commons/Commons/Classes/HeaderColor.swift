@@ -1,9 +1,12 @@
 //
 //  HeaderColor.swift
-//  Commons
+//  Alamofire
 //
-//  Created by Leonardo Oliveira Portes on 14/04/21.
+//  Created by Leonardo Oliveira Portes on 15/04/21.
 //
+
+import Foundation
+
 
 import Foundation
 import UIKit
@@ -23,10 +26,9 @@ public struct Font {
     }
 
     // MARK: Button
-
-struct Button {
+public struct Button {
     public static var centralButton: UIButton = {
-    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 90, height: 20))
+    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 180, height: 40))
     button.backgroundColor = UIColor(red: 0.55, green:0.59, blue:0.37, alpha: 1)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     button.layer.cornerRadius = 10
