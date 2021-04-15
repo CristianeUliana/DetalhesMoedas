@@ -3,47 +3,15 @@ import UIKit
 import AlamofireImage
 import Commons
 
-// Struct da resposta mockada
-struct MoedaElement: Codable {
-    let id, assetID, name: String
-    let priceUsd: Int
-    let idIcon: String
-    let volume1HrsUsd, volume1DayUsd, volume1MthUsd: Int
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case assetID = "asset_id"
-        case name
-        case priceUsd = "price_usd"
-        case idIcon = "id_icon"
-        case volume1HrsUsd = "volume_1hrs_usd"
-        case volume1DayUsd = "volume_1day_usd"
-        case volume1MthUsd = "volume_1mth_usd"
-    }
-}
-
-typealias Moeda = [MoedaElement]
-
-
-public struct Botao {
-    public static let Adicionar = "ADICIONAR"
-    public static let Remover = "REMOVER"
-}
-
 public class DetalhesMoeda: UIView {
     
-    //MARK: - Variáveis
-    //var listaFavoritos: [String] = []
-    //var delegate: DetalhesMoedaDelegate?
-    //var buttonAction: (() -> Void)?
-    
-   // variáveis de teste
-    var favoritos = "USD|BTC|EUR"
+    // MARK: - Variáveis
+
     var ehFavorito = false
+    var delegate: DetalhesMoedaDelegate?
+    @objc var buttonAction: (() -> Void)?
     
     // MARK: - IBOutlets
-    
-    
     
     @IBOutlet weak var viewButton: UIView!
     @IBOutlet weak var viewSup: UIView!
@@ -58,14 +26,7 @@ public class DetalhesMoeda: UIView {
     // MARK: - Métodos
     
     public func makeRequestDetalhes(sigla: String) {
-            //let newUrl = ApiRest.MoedaDetalhe.replacingOccurrences(of: "@@@", with: sigla)
-            //let api = "https://rest-sandbox.coinapi.io/v1/assets/@@@?apikey=1F8A5E86-F1C9-41C7-B8BB-9DB1B81FDE7C"
-            //let newUrl = api.replacingOccurrences(of: "@@@", with: sigla)
-        
-                         // resposta mockada
-            let newUrl = "https://607797ae1ed0ae0017d6afb7.mockapi.io/api/v1/users"
-           
-        
+            let newUrl = ApiRest.MoedaDetalhe.replacingOccurrences(of: "@@@", with: sigla)
             let url = URL(string: newUrl)!
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 print(response as Any)
@@ -84,6 +45,15 @@ public class DetalhesMoeda: UIView {
             task.resume()
         }
 
+    public func verificarFavoritos(_ favoritos: String, _ sigla: Substring) {
+            let listaDeFavoritos = favoritos.split(separator: "|")
+            if listaDeFavoritos.contains(sigla) {
+                ehFavorito = true
+                configurarButton(ActionButton.Remover)
+            } else {
+                configurarButton(ActionButton.Adicionar)
+            }
+        }
 
     func configuraTela(_ moeda: MoedaElement) {
         viewSup.backgroundColor = HeaderCores.headerColor
@@ -92,38 +62,35 @@ public class DetalhesMoeda: UIView {
         valorHoraLabel.text = "$ \(moeda.volume1HrsUsd)"
         valorMesLabel.text = "$ \(moeda.volume1HrsUsd)"
         valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)" // fazer configuração dos valores
-        //let caminhoIcon = moeda.idIcon
-        //let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
-        //let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
-        let apiUrl = "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_16/@@@.png"
-        let urlReplacing = apiUrl.replacingOccurrences(of: "@@@", with: "4caf2b16a0174e26a3482cea69c34cba")
-        guard let url = URL(string: urlReplacing) else {return}
-        moedaImage.af_setImage(withURL: url)
+        let caminhoIcon = moeda.idIcon
+        let id = caminhoIcon.replacingOccurrences(of: "-", with: "")
+//        let url = ApiRest.UrlIcon.replacingOccurrences(of: "@@@", with: id)
+//        guard let urlCompleta = URL(string: url) else {return}
+//        moedaImage.af.setImage(withURL: urlCompleta)
     }
-    
-    
     
     func configurarButton(_ acao: String) {
-        let botao = ButtonDetalhes.centralButton
-        botao.setTitle(acao, for: .normal)
-        viewButton.addSubview(botao)
-        botao.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 240)
-        let heightConstraint = NSLayoutConstraint(item: botao, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 60)
+        let button = ButtonDetalhes.centralButton
+        button.setTitle(acao, for: .normal)
+        button.addTarget(self, action: #selector(botaoAcao), for: .touchUpInside)
+        viewButton.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: viewButton, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 240)
+        let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 60)
         viewButton.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
+
+    public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {
+        delegate = moedaDelegate
+    }
     
-    
-public func verificarFavoritos(_ sigla: Substring) {
-        let listaDeFavoritos = favoritos.split(separator: "|")
-        if listaDeFavoritos.contains(sigla) {
-            ehFavorito = true
-            configurarButton(ActionButton.Remover)
-            
+    @objc public func botaoAcao() {
+        if let _buttonAction = buttonAction {
+                _buttonAction()
         } else {
-            configurarButton(ActionButton.Adicionar)
+            delegate?.buttonAction()
         }
     }
 }
@@ -154,41 +121,3 @@ extension UIView {
         return T()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//    public func setupUI(moedaDelegate: DetalhesMoedaDelegate?) {
-//        botaoAdcionarRemoverOutlet.setTitle(Botao.Adicionar, for: .normal)
-//        delegate = moedaDelegate
-//    }
-//
-//
-//
-//
-//
-//    @IBAction func botaoAcao(_ sender: UIButton) {
-//        if let _buttonAction = buttonAction {
-//            _buttonAction()
-//        } else {
-//            delegate?.buttonAction()
-//        }
-//        // se moeda está em listaFavoritos -> Remove
-//        // senão -> Adiciona
-//
-//    }

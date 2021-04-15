@@ -1,11 +1,11 @@
 PODS:
-  - Alamofire (4.7.3)
-  - AlamofireImage (3.4.1):
-    - Alamofire (~> 4.7)
+  - Alamofire (5.4.2)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
   - Commons (0.1.0)
   - DetalhesMoedas (0.1.0):
-    - Alamofire (~> 4.7.0)
-    - AlamofireImage (~> 3.4.0)
+    - Alamofire (~> 5.4.1)
+    - AlamofireImage (~> 4.1.0)
     - Commons
   - SwiftLint (0.43.1)
 
@@ -29,16 +29,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Commons:
-    :commit: 59683b1870941177d1e0f9f82e982c9bdc74061a
+    :commit: 7184c97370b65d0e240ea313a3c2249ec4cb3818
     :git: https://github.com/leojportes/Commons.git
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   Commons: 5909d5dc693d7ebf877141e4650929951faa0d02
-  DetalhesMoedas: 144a9c156e8877844a4e7c99d7e675ec4175446f
+  DetalhesMoedas: c1bcce48952413b0a50a7f42116d103a5aa09019
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 3b96e0323ea5ba13cfe423aebbdc2a51dd73b8a0
+PODFILE CHECKSUM: 12992b7204d7d02c5f71055b60b90a937d7120ea
 
 COCOAPODS: 1.10.1

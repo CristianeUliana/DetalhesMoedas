@@ -19,7 +19,6 @@ public struct ButtonDetalhes {
     }()
 }
 
-
 public struct ActionButton {
     public static let Adicionar = "ADICIONAR"
     public static let Remover = "REMOVER"

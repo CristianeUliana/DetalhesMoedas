@@ -38,8 +38,8 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Alamofire', '~> 4.7.0'
-  s.dependency 'AlamofireImage', '~> 3.4.0'
+  s.dependency 'Alamofire', '~> 5.4.1'
+  s.dependency 'AlamofireImage', '~> 4.1.0'
   s.dependency 'Commons'
   
 end
