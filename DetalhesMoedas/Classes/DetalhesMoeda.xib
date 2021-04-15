@@ -83,9 +83,6 @@
                                                     <state key="normal" title="ADICIONAR">
                                                         <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="botaoAcao:" destination="iN0-l3-epB" eventType="touchUpInside" id="DyP-Lf-NEf"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,14 +188,14 @@
                 <constraint firstItem="OhH-r7-V6T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="isp-J5-Fak"/>
             </constraints>
             <connections>
-                <outlet property="botaoAdcionarRemoverOutlet" destination="RQw-89-MvJ" id="OiA-6W-6V1"/>
-                <outlet property="imagemFavoritos" destination="gdb-QQ-zey" id="VZh-0m-Vbt"/>
-                <outlet property="imagemMoeda" destination="d3b-MR-Y4X" id="PpZ-q0-dMj"/>
-                <outlet property="siglaLabel" destination="t6u-dz-vYs" id="Ckg-M3-S6y"/>
-                <outlet property="valorAnoLabel" destination="EHc-hU-Ph8" id="ike-Md-GnB"/>
-                <outlet property="valorHoraLabel" destination="hGE-3b-vDz" id="eUt-lg-mAA"/>
-                <outlet property="valorMesLabel" destination="sEC-4W-Xpf" id="BVy-8X-e0S"/>
-                <outlet property="valorMoedaLabel" destination="bUv-yN-KIG" id="WlJ-fV-QQ1"/>
+                <outlet property="botaoOutlet" destination="RQw-89-MvJ" id="EW2-u4-puG"/>
+                <outlet property="favoritoImage" destination="gdb-QQ-zey" id="Erl-Ka-hyh"/>
+                <outlet property="moedaImage" destination="d3b-MR-Y4X" id="wsC-03-szE"/>
+                <outlet property="siglaMoedaLabel" destination="t6u-dz-vYs" id="PyI-sK-cty"/>
+                <outlet property="valorAnoLabel" destination="EHc-hU-Ph8" id="H7C-at-Dlp"/>
+                <outlet property="valorHoraLabel" destination="hGE-3b-vDz" id="lEi-9y-Ia3"/>
+                <outlet property="valorMesLabel" destination="sEC-4W-Xpf" id="Xxa-Sr-vNm"/>
+                <outlet property="valorMoedaLabel" destination="bUv-yN-KIG" id="lHL-Jw-kZf"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="102.71739130434783"/>
         </view>
