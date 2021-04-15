@@ -1,6 +1,6 @@
 
 import UIKit
-
+//import AlamofireImage
 
 
 //struct MoedaElement: Codable {
@@ -56,10 +56,10 @@ struct MoedaElement: Codable {
 typealias Moeda = [MoedaElement]
 
 
-//public struct Botao {
-//    public static let Adicionar = "ADICIONAR"
-//    public static let Remover = "REMOVER"
-//}
+public struct Botao {
+    public static let Adicionar = "ADICIONAR"
+    public static let Remover = "REMOVER"
+}
 
 public class DetalhesMoeda: UIView {
     
@@ -67,13 +67,17 @@ public class DetalhesMoeda: UIView {
     //var delegate: DetalhesMoedaDelegate?
     //var buttonAction: (() -> Void)?
     
+   
+    var favoritos = "USD|BTC|EUR"
+    var ehFavorito = false
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var siglaMoedaLabel: UILabel!
     @IBOutlet weak var favoritoImage: UIImageView!
     @IBOutlet weak var moedaImage: UIImageView!
     @IBOutlet weak var valorMoedaLabel: UILabel!
-    @IBOutlet weak var botaoOutlet: UIButton!
+    @IBOutlet weak var botaoLabel: UILabel!
     @IBOutlet weak var valorHoraLabel: UILabel!
     @IBOutlet weak var valorMesLabel: UILabel!
     @IBOutlet weak var valorAnoLabel: UILabel!
@@ -95,9 +99,7 @@ public class DetalhesMoeda: UIView {
                         DispatchQueue.main.async {
                             self.configuraTela(moeda)
                         }
-                        
                     }
-                    
                 } catch let error {
                     print("error: \(error)")
                 }
@@ -109,15 +111,25 @@ public class DetalhesMoeda: UIView {
     func configuraTela(_ moeda: MoedaElement) {
         siglaMoedaLabel.text = moeda.assetID
         valorMoedaLabel.text = "$ \(moeda.priceUsd)"
-        valorHoraLabel.text = "$ "
-        valorMesLabel.text = "$ "
-        valorAnoLabel.text = "$ "
+        valorHoraLabel.text = "$ \(moeda.volume1HrsUsd)"
+        valorMesLabel.text = "$ \(moeda.volume1HrsUsd)"
+        valorAnoLabel.text = "$ \(moeda.volume1HrsUsd)"
+        
 
     }
     
     
     
+public func verificarFavoritos(_ sigla: Substring) {
+        let listaDeFavoritos = favoritos.split(separator: "|")
     
+        if listaDeFavoritos.contains(sigla) {
+            ehFavorito = true
+            botaoLabel.text = Botao.Remover
+        } else {
+            botaoLabel.text = Botao.Adicionar
+        }
+    }
     
     
     

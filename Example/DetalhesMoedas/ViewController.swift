@@ -14,10 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var myStack: UIStackView!
 
     let detalhes = DetalhesMoeda.fromNib()
+    var sigla: Substring = "BLT"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myStack.addSubview(detalhes)
+        detalhes.verificarFavoritos(sigla)
         detalhes.makeRequestDetalhes(sigla: "BTC")
     }
     override func didReceiveMemoryWarning() {
