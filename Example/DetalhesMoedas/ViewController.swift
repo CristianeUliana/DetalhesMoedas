@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         myStack.addSubview(detalhes)
         // detalhes.verificarFavoritos(listaFavoritos, sigla)
-        detalhes.makeRequestDetalhes(sigla: "BTC")
+        detalhes.makeRequestDetalhes("BTC", "estrela")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
