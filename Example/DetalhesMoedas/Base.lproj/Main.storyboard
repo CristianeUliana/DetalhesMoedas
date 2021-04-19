@@ -19,19 +19,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HLY-iL-KlX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HLY-iL-KlX">
+                                <rect key="frame" x="0.0" y="211" width="414" height="525"/>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gya-a1-HDQ">
+                                <rect key="frame" x="186" y="115" width="42" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HLY-iL-KlX" secondAttribute="trailing" id="0P3-1B-mpP"/>
-                            <constraint firstItem="HLY-iL-KlX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="73a-pr-S5j"/>
+                            <constraint firstItem="Gya-a1-HDQ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="LqU-Ls-BIO"/>
                             <constraint firstItem="HLY-iL-KlX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mJB-X7-gcZ"/>
                             <constraint firstAttribute="bottom" secondItem="HLY-iL-KlX" secondAttribute="bottom" id="twU-lg-ATY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="data" destination="Gya-a1-HDQ" id="Lid-tG-dqQ"/>
                         <outlet property="myStack" destination="HLY-iL-KlX" id="P94-1n-YLo"/>
                     </connections>
                 </viewController>
