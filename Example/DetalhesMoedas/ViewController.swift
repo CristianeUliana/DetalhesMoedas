@@ -9,6 +9,7 @@
 import UIKit
 import DetalhesMoedas
 import AlamofireImage
+import Commons
 
 
 class ViewController: UIViewController, DetalhesMoedaDelegate {

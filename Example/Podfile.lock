@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Commons:
-    :commit: 6fed03640b5995196a93240bfb16e395770d04c7
+    :commit: 925d7fed4a26cd67733c1a8ea1b256d8ec2dd9d8
     :git: https://github.com/leojportes/Commons.git
 
 SPEC CHECKSUMS:
